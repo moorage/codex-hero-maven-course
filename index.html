@@ -12,8 +12,10 @@
     />
     <script>
       document.documentElement.dataset.slide =
-        window.location.hash === "#slide-11"
-          ? "11"
+        window.location.hash === "#slide-12"
+          ? "12"
+          : window.location.hash === "#slide-11"
+            ? "11"
           : window.location.hash === "#slide-10"
             ? "10"
           : window.location.hash === "#slide-9"
@@ -76,8 +78,8 @@
       }
 
       .stage {
-        position: relative;
-        min-height: calc(100dvh + 36vmax);
+        position: fixed;
+        inset: -18vmax 0;
         display: grid;
         place-items: center;
         padding: 0;
@@ -86,7 +88,7 @@
 
       .ambient {
         position: absolute;
-        inset: -18vmax;
+        inset: 0;
         filter: blur(30px);
         opacity: 0.8;
         pointer-events: none;
@@ -139,7 +141,7 @@
 
       .vignette {
         position: absolute;
-        inset: -18vmax;
+        inset: 0;
         background: radial-gradient(
           circle at center,
           transparent 58%,
@@ -151,14 +153,17 @@
       .slide-shell {
         position: relative;
         width: min(100vw, calc(100dvh * 9 / 16));
-        height: calc(100dvh + 36vmax);
+        height: 100%;
         overflow: visible;
       }
 
       .slides-viewport {
-        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 0;
         width: 100%;
-        height: 100%;
+        height: 100dvh;
+        transform: translateY(-50%);
         overflow: hidden;
       }
 
@@ -210,6 +215,10 @@
 
       .slide[data-slide="11"] {
         transform: translateY(1000%);
+      }
+
+      .slide[data-slide="12"] {
+        transform: translateY(1100%);
       }
 
       html[data-slide="2"] .slide[data-slide="1"] {
@@ -648,6 +657,7 @@
         display: grid;
         gap: 1.35rem;
         align-content: center;
+        transform: translateY(-4vh);
       }
 
       .table-wrap h1 {
@@ -678,7 +688,7 @@
       }
 
       .comparison td {
-        font-size: clamp(0.98rem, 1.45vw, 1.12rem);
+        font-size: clamp(1.5rem, 1.45vw, 1.12rem);
         line-height: 1.55;
         color: var(--ink-soft);
       }
@@ -710,13 +720,13 @@
         width: 100%;
         max-width: 100%;
         color: var(--ink-soft);
-        font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+        font-size: clamp(1.5rem, 1.7vw, 1.5rem);
         line-height: 1.45;
       }
 
       .examples {
         margin: 0;
-        font-size: clamp(0.94rem, 1.4vw, 1.08rem);
+        font-size: clamp(1.5rem, 1.4vw, 1.5rem);
         line-height: 1.5;
         color: rgba(86, 96, 105, 0.72);
       }
@@ -732,6 +742,7 @@
         gap: 1.3rem;
         align-content: center;
         width: 100%;
+        transform: translateY(-3vh);
       }
 
       .glossary-wrap h1 {
@@ -747,7 +758,7 @@
       .glossary-item {
         margin: 0;
         max-width: 100%;
-        font-size: clamp(1rem, 1.42vw, 1.12rem);
+        font-size: clamp(1.5rem, 1.42vw, 1.5rem);
         line-height: 1.5;
         color: var(--ink-soft);
       }
@@ -770,6 +781,7 @@
         gap: 1.4rem;
         align-content: center;
         width: 100%;
+        transform: translateY(-4vh);
       }
 
       .quote-wrap h1 {
@@ -779,16 +791,16 @@
 
       .loop-line {
         margin: 0;
-        max-width: 14ch;
+        max-width: 100%;
         font-family: "Cormorant Garamond", serif;
-        font-size: clamp(2rem, 4.4vw, 3.4rem);
+        font-size: clamp(1.7rem, 3.7vw, 2.7rem);
         line-height: 1.02;
         color: var(--ink-strong);
       }
 
       .goal-line {
         margin: 0;
-        font-size: clamp(0.98rem, 1.35vw, 1.08rem);
+        font-size: clamp(1.5rem, 1.35vw, 1.5rem);
         line-height: 1.45;
         color: rgba(86, 96, 105, 0.76);
       }
@@ -807,14 +819,14 @@
       }
 
       .validation-wrap h1 {
-        font-size: clamp(2.5rem, 4.8vw, 3.8rem);
+        font-size: clamp(2.1rem, 4vw, 3.2rem);
         line-height: 0.98;
-        max-width: 12ch;
+        max-width: 100%;
       }
 
       .validation-intro {
         margin: 0;
-        font-size: clamp(1rem, 1.5vw, 1.16rem);
+        font-size: clamp(1.5rem, 1.5vw, 1.5rem);
         line-height: 1.5;
         color: var(--ink-soft);
       }
@@ -824,9 +836,9 @@
         padding-left: 1.2rem;
         display: grid;
         gap: 0.95rem;
-        max-width: 26ch;
+        max-width: 100%;
         color: var(--ink-soft);
-        font-size: clamp(1rem, 1.46vw, 1.16rem);
+        font-size: clamp(1.5rem, 1.46vw, 1.5rem);
         line-height: 1.48;
       }
 
@@ -835,13 +847,13 @@
         padding-left: 1.2rem;
         display: grid;
         gap: 0.7rem;
-        font-size: clamp(0.96rem, 1.34vw, 1.08rem);
+        font-size: clamp(1.5rem, 1.34vw, 1.5rem);
         line-height: 1.45;
         color: rgba(86, 96, 105, 0.74);
       }
 
       .quote-media {
-        width: min(100%, 420px);
+        width: min(100%, 520px);
         border-radius: 18px;
         display: block;
         box-shadow: 0 18px 48px rgba(86, 96, 105, 0.14);
@@ -856,14 +868,30 @@
         z-index: 1;
         display: grid;
         place-items: center;
+        gap: 0.65rem;
         width: 100%;
         text-align: center;
       }
 
       .divider-wrap h1 {
-        max-width: 10ch;
-        font-size: clamp(3rem, 6vw, 4.8rem);
+        margin: 0 auto;
+        width: 100%;
+        max-width: 12ch;
+        font-size: clamp(2.2rem, 4.2vw, 3.4rem);
         line-height: 0.98;
+        text-align: center;
+      }
+
+      .divider-line {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(1.6rem, 2.3vw, 1.95rem);
+        line-height: 0.98;
+        color: var(--ink-strong);
       }
 
       .code-slide {
@@ -954,13 +982,48 @@
 
       .prompt-label {
         margin: 0;
-        font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+        font-size: clamp(1.5rem, 1.4vw, 1.5rem);
         line-height: 1.45;
         color: var(--ink-soft);
       }
 
-      .divider-line {
-        display: block;
+      .fancy-slide {
+        justify-content: center;
+      }
+
+      .fancy-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1.35rem;
+        align-content: center;
+        width: 100%;
+      }
+
+      .fancy-wrap h1 {
+        font-size: clamp(2.6rem, 5vw, 4rem);
+        line-height: 0.98;
+      }
+
+      .fancy-list {
+        margin: 0;
+        padding-left: 1.2rem;
+        display: grid;
+        gap: 1rem;
+        color: var(--ink-soft);
+        font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+        line-height: 1.48;
+      }
+
+      .deck-nav a.is-active {
+        background: rgba(86, 96, 105, 0.58) !important;
+      }
+
+      .deck-nav a.is-inactive {
+        background: rgba(86, 96, 105, 0.16) !important;
+      }
+
+      .divider-line span {
         white-space: nowrap;
       }
 
@@ -981,6 +1044,7 @@
         border-radius: 999px;
         border: 1px solid rgba(86, 96, 105, 0.35);
         background: rgba(255, 255, 255, 0.22);
+        transition: background 160ms ease;
       }
 
       html[data-slide="1"] .deck-nav a:nth-child(2),
@@ -1332,11 +1396,8 @@
 
             <article class="slide divider-slide" data-slide="9">
               <section class="divider-wrap">
-                <h1>
-                  k enough theory.<span class="divider-line"
-                    >LFG🚀🚀🚀🚀🚀!!!1</span
-                  >
-                </h1>
+                <h1>k enough theory.</h1>
+                <p class="divider-line"><span>LFG🚀🚀🚀🚀🚀!!!1</span></p>
               </section>
             </article>
 
@@ -1426,6 +1487,18 @@ cxharness</code></pre>
                 </div>
               </section>
             </article>
+
+            <article class="slide fancy-slide" data-slide="12">
+              <section class="fancy-wrap">
+                <span class="meta-label">Next Steps</span>
+                <h1>Fancypants</h1>
+                <ul class="fancy-list">
+                  <li>Fancypants: Connect to Google Calendar &amp; Email ( https://console.cloud.google.com/projectcreate )</li>
+                  <li>Fancierpants: Add Voice Interaction ( https://platform.openai.com/ )</li>
+                  <li>Fanciestpants: Make it recurring ( launchd )</li>
+                </ul>
+              </section>
+            </article>
           </div>
         </div>
 
@@ -1441,6 +1514,7 @@ cxharness</code></pre>
           <a href="#slide-9" aria-label="Go to slide 9"></a>
           <a href="#slide-10" aria-label="Go to slide 10"></a>
           <a href="#slide-11" aria-label="Go to slide 11"></a>
+          <a href="#slide-12" aria-label="Go to slide 12"></a>
         </nav>
       </section>
     </main>
@@ -1457,14 +1531,23 @@ cxharness</code></pre>
         "#slide-9",
         "#slide-10",
         "#slide-11",
+        "#slide-12",
       ];
 
       function syncSlideState() {
         const hash = window.location.hash;
         const index = slideHashes.indexOf(hash);
-        document.documentElement.dataset.slide = String(
-          index === -1 ? 1 : index + 1,
-        );
+        const activeIndex = index === -1 ? 0 : index;
+        document.documentElement.dataset.slide = String(activeIndex + 1);
+
+        document.querySelectorAll(".slide").forEach((slide, slideIndex) => {
+          slide.style.transform = `translateY(${(slideIndex - activeIndex) * 100}%)`;
+        });
+
+        document.querySelectorAll(".deck-nav a").forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === activeIndex);
+          dot.classList.toggle("is-inactive", dotIndex !== activeIndex);
+        });
       }
 
       function currentSlideIndex() {
