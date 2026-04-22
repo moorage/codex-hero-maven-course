@@ -1,0 +1,1531 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codex Hero Slides</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      document.documentElement.dataset.slide =
+        window.location.hash === "#slide-11"
+          ? "11"
+          : window.location.hash === "#slide-10"
+            ? "10"
+          : window.location.hash === "#slide-9"
+            ? "9"
+            : window.location.hash === "#slide-8"
+              ? "8"
+              : window.location.hash === "#slide-7"
+                ? "7"
+                : window.location.hash === "#slide-6"
+                  ? "6"
+                  : window.location.hash === "#slide-5"
+                    ? "5"
+                    : window.location.hash === "#slide-4"
+                      ? "4"
+                      : window.location.hash === "#slide-3"
+                        ? "3"
+                        : window.location.hash === "#slide-2"
+                          ? "2"
+                          : "1";
+    </script>
+    <style>
+      :root {
+        --bg-ice: #d9e6e6;
+        --bg-mist: #ccd8da;
+        --bg-shell: #d8cdc9;
+        --ink-strong: #566069;
+        --ink-soft: rgba(86, 96, 105, 0.82);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+        margin: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.65),
+            transparent 32%
+          ),
+          linear-gradient(
+            160deg,
+            var(--bg-ice) 0%,
+            var(--bg-mist) 48%,
+            var(--bg-shell) 100%
+          );
+        color: var(--ink-strong);
+        font-family: "Manrope", sans-serif;
+      }
+
+      .stage {
+        position: relative;
+        min-height: calc(100dvh + 36vmax);
+        display: grid;
+        place-items: center;
+        padding: 0;
+        isolation: isolate;
+      }
+
+      .ambient {
+        position: absolute;
+        inset: -18vmax;
+        filter: blur(30px);
+        opacity: 0.8;
+        pointer-events: none;
+      }
+
+      .ambient::before,
+      .ambient::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+
+      .ambient::before {
+        background:
+          radial-gradient(
+            circle at 20% 76%,
+            rgba(253, 206, 188, 0.54),
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 78% 36%,
+            rgba(127, 221, 238, 0.44),
+            transparent 18%
+          ),
+          radial-gradient(
+            circle at 38% 52%,
+            rgba(197, 190, 224, 0.34),
+            transparent 24%
+          );
+        animation: drift-clouds 44s ease-in-out infinite alternate;
+      }
+
+      .ambient::after {
+        background:
+          linear-gradient(
+            46deg,
+            transparent 24%,
+            rgba(255, 255, 255, 0.23) 37%,
+            transparent 52%
+          ),
+          linear-gradient(
+            224deg,
+            transparent 62%,
+            rgba(107, 217, 232, 0.14) 76%,
+            transparent 92%
+          );
+        mix-blend-mode: screen;
+        animation: sweep-light 36s ease-in-out infinite alternate;
+      }
+
+      .vignette {
+        position: absolute;
+        inset: -18vmax;
+        background: radial-gradient(
+          circle at center,
+          transparent 58%,
+          rgba(76, 84, 90, 0.12) 100%
+        );
+        pointer-events: none;
+      }
+
+      .slide-shell {
+        position: relative;
+        width: min(100vw, calc(100dvh * 9 / 16));
+        height: calc(100dvh + 36vmax);
+        overflow: visible;
+      }
+
+      .slides-viewport {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .slides {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .slide[data-slide="1"] {
+        transform: translateY(0);
+      }
+
+      .slide[data-slide="2"] {
+        transform: translateY(100%);
+      }
+
+      .slide[data-slide="3"] {
+        transform: translateY(200%);
+      }
+
+      .slide[data-slide="4"] {
+        transform: translateY(300%);
+      }
+
+      .slide[data-slide="5"] {
+        transform: translateY(400%);
+      }
+
+      .slide[data-slide="6"] {
+        transform: translateY(500%);
+      }
+
+      .slide[data-slide="7"] {
+        transform: translateY(600%);
+      }
+
+      .slide[data-slide="8"] {
+        transform: translateY(700%);
+      }
+
+      .slide[data-slide="9"] {
+        transform: translateY(800%);
+      }
+
+      .slide[data-slide="10"] {
+        transform: translateY(900%);
+      }
+
+      .slide[data-slide="11"] {
+        transform: translateY(1000%);
+      }
+
+      html[data-slide="2"] .slide[data-slide="1"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="2"] .slide[data-slide="2"] {
+        transform: translateY(0);
+      }
+
+      html[data-slide="3"] .slide[data-slide="1"] {
+        transform: translateY(-200%);
+      }
+
+      html[data-slide="3"] .slide[data-slide="2"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="3"] .slide[data-slide="3"] {
+        transform: translateY(0);
+      }
+
+      html[data-slide="4"] .slide[data-slide="1"] {
+        transform: translateY(-300%);
+      }
+
+      html[data-slide="4"] .slide[data-slide="2"] {
+        transform: translateY(-200%);
+      }
+
+      html[data-slide="4"] .slide[data-slide="3"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="4"] .slide[data-slide="4"] {
+        transform: translateY(0);
+      }
+
+      html[data-slide="5"] .slide[data-slide="1"] {
+        transform: translateY(-400%);
+      }
+
+      html[data-slide="5"] .slide[data-slide="2"] {
+        transform: translateY(-300%);
+      }
+
+      html[data-slide="5"] .slide[data-slide="3"] {
+        transform: translateY(-200%);
+      }
+
+      html[data-slide="5"] .slide[data-slide="4"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="5"] .slide[data-slide="5"] {
+        transform: translateY(0);
+      }
+
+      html[data-slide="6"] .slide[data-slide="1"] {
+        transform: translateY(-500%);
+      }
+
+      html[data-slide="6"] .slide[data-slide="2"] {
+        transform: translateY(-400%);
+      }
+
+      html[data-slide="6"] .slide[data-slide="3"] {
+        transform: translateY(-300%);
+      }
+
+      html[data-slide="6"] .slide[data-slide="4"] {
+        transform: translateY(-200%);
+      }
+
+      html[data-slide="6"] .slide[data-slide="5"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="6"] .slide[data-slide="6"] {
+        transform: translateY(0);
+      }
+
+      html[data-slide="7"] .slide[data-slide="1"] {
+        transform: translateY(-600%);
+      }
+
+      html[data-slide="7"] .slide[data-slide="2"] {
+        transform: translateY(-500%);
+      }
+
+      html[data-slide="7"] .slide[data-slide="3"] {
+        transform: translateY(-400%);
+      }
+
+      html[data-slide="7"] .slide[data-slide="4"] {
+        transform: translateY(-300%);
+      }
+
+      html[data-slide="7"] .slide[data-slide="5"] {
+        transform: translateY(-200%);
+      }
+
+      html[data-slide="7"] .slide[data-slide="6"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="7"] .slide[data-slide="7"] {
+        transform: translateY(0);
+      }
+
+      html[data-slide="8"] .slide[data-slide="1"] {
+        transform: translateY(-700%);
+      }
+
+      html[data-slide="8"] .slide[data-slide="2"] {
+        transform: translateY(-600%);
+      }
+
+      html[data-slide="8"] .slide[data-slide="3"] {
+        transform: translateY(-500%);
+      }
+
+      html[data-slide="8"] .slide[data-slide="4"] {
+        transform: translateY(-400%);
+      }
+
+      html[data-slide="8"] .slide[data-slide="5"] {
+        transform: translateY(-300%);
+      }
+
+      html[data-slide="8"] .slide[data-slide="6"] {
+        transform: translateY(-200%);
+      }
+
+      html[data-slide="8"] .slide[data-slide="7"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="8"] .slide[data-slide="8"] {
+        transform: translateY(0);
+      }
+
+      html[data-slide="9"] .slide[data-slide="1"] {
+        transform: translateY(-800%);
+      }
+
+      html[data-slide="9"] .slide[data-slide="2"] {
+        transform: translateY(-700%);
+      }
+
+      html[data-slide="9"] .slide[data-slide="3"] {
+        transform: translateY(-600%);
+      }
+
+      html[data-slide="9"] .slide[data-slide="4"] {
+        transform: translateY(-500%);
+      }
+
+      html[data-slide="9"] .slide[data-slide="5"] {
+        transform: translateY(-400%);
+      }
+
+      html[data-slide="9"] .slide[data-slide="6"] {
+        transform: translateY(-300%);
+      }
+
+      html[data-slide="9"] .slide[data-slide="7"] {
+        transform: translateY(-200%);
+      }
+
+      html[data-slide="9"] .slide[data-slide="8"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="9"] .slide[data-slide="9"] {
+        transform: translateY(0);
+      }
+
+      html[data-slide="10"] .slide[data-slide="1"] {
+        transform: translateY(-900%);
+      }
+
+      html[data-slide="10"] .slide[data-slide="2"] {
+        transform: translateY(-800%);
+      }
+
+      html[data-slide="10"] .slide[data-slide="3"] {
+        transform: translateY(-700%);
+      }
+
+      html[data-slide="10"] .slide[data-slide="4"] {
+        transform: translateY(-600%);
+      }
+
+      html[data-slide="10"] .slide[data-slide="5"] {
+        transform: translateY(-500%);
+      }
+
+      html[data-slide="10"] .slide[data-slide="6"] {
+        transform: translateY(-400%);
+      }
+
+      html[data-slide="10"] .slide[data-slide="7"] {
+        transform: translateY(-300%);
+      }
+
+      html[data-slide="10"] .slide[data-slide="8"] {
+        transform: translateY(-200%);
+      }
+
+      html[data-slide="10"] .slide[data-slide="9"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="10"] .slide[data-slide="10"] {
+        transform: translateY(0);
+      }
+
+      html[data-slide="11"] .slide[data-slide="1"] {
+        transform: translateY(-1000%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="2"] {
+        transform: translateY(-900%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="3"] {
+        transform: translateY(-800%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="4"] {
+        transform: translateY(-700%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="5"] {
+        transform: translateY(-600%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="6"] {
+        transform: translateY(-500%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="7"] {
+        transform: translateY(-400%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="8"] {
+        transform: translateY(-300%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="9"] {
+        transform: translateY(-200%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="10"] {
+        transform: translateY(-100%);
+      }
+
+      html[data-slide="11"] .slide[data-slide="11"] {
+        transform: translateY(0);
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+      }
+
+      .slide {
+        padding: clamp(34px, 4vw, 52px) clamp(26px, 3vw, 42px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        gap: clamp(18px, 3vh, 34px);
+      }
+
+      html[data-ready="true"] .slide {
+        transition: transform 700ms ease;
+      }
+
+      .slide::before,
+      .slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .slide::before {
+        background:
+          radial-gradient(
+            circle at 20% 86%,
+            rgba(248, 205, 190, 0.36),
+            transparent 24%
+          ),
+          radial-gradient(
+            circle at 84% 34%,
+            rgba(134, 220, 235, 0.24),
+            transparent 20%
+          ),
+          linear-gradient(
+            138deg,
+            transparent 34%,
+            rgba(255, 255, 255, 0.12) 47%,
+            transparent 61%
+          );
+        animation: background-breathe 28s ease-in-out infinite alternate;
+      }
+
+      .slide::after {
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 18%),
+          radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.22),
+            transparent 36%
+          );
+        opacity: 0.55;
+      }
+
+      .hero {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: clamp(18px, 2vh, 26px);
+        align-content: center;
+      }
+
+      .panel {
+        padding: 0;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 0.85rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(86, 96, 105, 0.74);
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        line-height: 0.94;
+        letter-spacing: -0.03em;
+      }
+
+      h1 {
+        font-size: clamp(4.7rem, 10vw, 7rem);
+      }
+
+      h2 {
+        font-size: clamp(1.9rem, 4.5vw, 3rem);
+        line-height: 1;
+      }
+
+      .lede {
+        margin: 1rem 0 0;
+        max-width: 28ch;
+        font-size: clamp(0.94rem, 1.55vw, 1.08rem);
+        line-height: 1.7;
+        color: var(--ink-soft);
+      }
+
+      .meta {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+        align-items: end;
+        margin-top: clamp(8px, 1.8vh, 18px);
+      }
+
+      .meta-copy {
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .meta-label {
+        font-size: 0.78rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(86, 96, 105, 0.72);
+      }
+
+      .meta-value {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        color: var(--ink-strong);
+      }
+
+      .link-slide {
+        justify-content: center;
+      }
+
+      .link-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1.25rem;
+        align-content: center;
+      }
+
+      .link-text {
+        margin: 0;
+        max-width: 24ch;
+        font-size: clamp(1.1rem, 2.1vw, 1.45rem);
+        line-height: 1.55;
+        color: var(--ink-soft);
+      }
+
+      .readme-link {
+        display: inline-block;
+        width: fit-content;
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        line-height: 1.05;
+        color: var(--ink-strong);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
+        word-break: break-word;
+      }
+
+      .table-slide {
+        justify-content: center;
+      }
+
+      .table-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1.35rem;
+        align-content: center;
+      }
+
+      .table-wrap h1 {
+        font-size: clamp(2.7rem, 5.3vw, 4rem);
+        line-height: 0.98;
+      }
+
+      .comparison {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .comparison th,
+      .comparison td {
+        width: 50%;
+        vertical-align: top;
+        text-align: left;
+        padding: 0.9rem 1rem 0.9rem 0;
+        border-bottom: 1px solid rgba(86, 96, 105, 0.14);
+      }
+
+      .comparison th {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.7rem, 3vw, 2.2rem);
+        font-weight: 500;
+        color: var(--ink-strong);
+      }
+
+      .comparison td {
+        font-size: clamp(0.98rem, 1.45vw, 1.12rem);
+        line-height: 1.55;
+        color: var(--ink-soft);
+      }
+
+      .bullets-slide {
+        justify-content: center;
+      }
+
+      .bullets-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1.5rem;
+        align-content: center;
+        width: 100%;
+      }
+
+      .bullets-wrap h1 {
+        font-size: clamp(2.4rem, 4.6vw, 3.7rem);
+        line-height: 0.98;
+        max-width: 100%;
+      }
+
+      .concept-list {
+        margin: 0;
+        padding-left: 1.2rem;
+        display: grid;
+        gap: 0.95rem;
+        width: 100%;
+        max-width: 100%;
+        color: var(--ink-soft);
+        font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+        line-height: 1.45;
+      }
+
+      .examples {
+        margin: 0;
+        font-size: clamp(0.94rem, 1.4vw, 1.08rem);
+        line-height: 1.5;
+        color: rgba(86, 96, 105, 0.72);
+      }
+
+      .glossary-slide {
+        justify-content: center;
+      }
+
+      .glossary-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1.3rem;
+        align-content: center;
+        width: 100%;
+      }
+
+      .glossary-wrap h1 {
+        font-size: clamp(2.5rem, 4.8vw, 3.8rem);
+        line-height: 0.98;
+      }
+
+      .glossary-list {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .glossary-item {
+        margin: 0;
+        max-width: 100%;
+        font-size: clamp(1rem, 1.42vw, 1.12rem);
+        line-height: 1.5;
+        color: var(--ink-soft);
+      }
+
+      .glossary-item strong {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.35em;
+        font-weight: 500;
+        color: var(--ink-strong);
+      }
+
+      .quote-slide {
+        justify-content: center;
+      }
+
+      .quote-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1.4rem;
+        align-content: center;
+        width: 100%;
+      }
+
+      .quote-wrap h1 {
+        font-size: clamp(2.8rem, 5vw, 4rem);
+        line-height: 0.98;
+      }
+
+      .loop-line {
+        margin: 0;
+        max-width: 14ch;
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4.4vw, 3.4rem);
+        line-height: 1.02;
+        color: var(--ink-strong);
+      }
+
+      .goal-line {
+        margin: 0;
+        font-size: clamp(0.98rem, 1.35vw, 1.08rem);
+        line-height: 1.45;
+        color: rgba(86, 96, 105, 0.76);
+      }
+
+      .validation-slide {
+        justify-content: center;
+      }
+
+      .validation-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1.35rem;
+        align-content: center;
+        width: 100%;
+      }
+
+      .validation-wrap h1 {
+        font-size: clamp(2.5rem, 4.8vw, 3.8rem);
+        line-height: 0.98;
+        max-width: 12ch;
+      }
+
+      .validation-intro {
+        margin: 0;
+        font-size: clamp(1rem, 1.5vw, 1.16rem);
+        line-height: 1.5;
+        color: var(--ink-soft);
+      }
+
+      .validation-list {
+        margin: 0;
+        padding-left: 1.2rem;
+        display: grid;
+        gap: 0.95rem;
+        max-width: 26ch;
+        color: var(--ink-soft);
+        font-size: clamp(1rem, 1.46vw, 1.16rem);
+        line-height: 1.48;
+      }
+
+      .validation-examples {
+        margin: 0;
+        padding-left: 1.2rem;
+        display: grid;
+        gap: 0.7rem;
+        font-size: clamp(0.96rem, 1.34vw, 1.08rem);
+        line-height: 1.45;
+        color: rgba(86, 96, 105, 0.74);
+      }
+
+      .quote-media {
+        width: min(100%, 420px);
+        border-radius: 18px;
+        display: block;
+        box-shadow: 0 18px 48px rgba(86, 96, 105, 0.14);
+      }
+
+      .divider-slide {
+        justify-content: center;
+      }
+
+      .divider-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        width: 100%;
+        text-align: center;
+      }
+
+      .divider-wrap h1 {
+        max-width: 10ch;
+        font-size: clamp(3rem, 6vw, 4.8rem);
+        line-height: 0.98;
+      }
+
+      .code-slide {
+        justify-content: center;
+      }
+
+      .code-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1.4rem;
+        align-content: center;
+        width: 100%;
+      }
+
+      .code-wrap h1 {
+        font-size: clamp(2.6rem, 5vw, 4rem);
+        line-height: 0.98;
+      }
+
+      .code-card {
+        position: relative;
+        padding: 1.15rem 1.1rem 1rem;
+        border: 1px solid rgba(86, 96, 105, 0.14);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.16);
+        backdrop-filter: blur(10px);
+      }
+
+      .code-stack {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .copy-button {
+        position: absolute;
+        top: 0.85rem;
+        right: 0.85rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        display: inline-grid;
+        place-items: center;
+        border: 1px solid rgba(86, 96, 105, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.32);
+        color: var(--ink-strong);
+        cursor: pointer;
+      }
+
+      .copy-button svg {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .copy-button[data-copied="true"] {
+        background: rgba(127, 221, 238, 0.34);
+      }
+
+      .code-block {
+        margin: 0;
+        padding-top: 1.2rem;
+        overflow-x: auto;
+        font-family:
+          "SFMono-Regular", "SF Mono", "Menlo", "Consolas", monospace;
+        font-size: clamp(0.98rem, 1.45vw, 1.08rem);
+        line-height: 1.55;
+        color: var(--ink-strong);
+        white-space: pre-wrap;
+      }
+
+      .prompt-slide {
+        justify-content: center;
+      }
+
+      .prompt-wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1.4rem;
+        align-content: center;
+        width: 100%;
+      }
+
+      .prompt-wrap h1 {
+        font-size: clamp(2.6rem, 5vw, 4rem);
+        line-height: 0.98;
+      }
+
+      .prompt-label {
+        margin: 0;
+        font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+        line-height: 1.45;
+        color: var(--ink-soft);
+      }
+
+      .divider-line {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .deck-nav {
+        position: absolute;
+        left: calc(-1 * clamp(28px, 4vw, 56px));
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .deck-nav a {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(86, 96, 105, 0.35);
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      html[data-slide="1"] .deck-nav a:nth-child(2),
+      html[data-slide="1"] .deck-nav a:nth-child(3),
+      html[data-slide="1"] .deck-nav a:nth-child(4),
+      html[data-slide="1"] .deck-nav a:nth-child(5),
+      html[data-slide="1"] .deck-nav a:nth-child(6),
+      html[data-slide="1"] .deck-nav a:nth-child(7),
+      html[data-slide="1"] .deck-nav a:nth-child(8),
+      html[data-slide="1"] .deck-nav a:nth-child(9),
+      html[data-slide="1"] .deck-nav a:nth-child(10),
+      html[data-slide="1"] .deck-nav a:nth-child(11),
+      html[data-slide="2"] .deck-nav a:first-child,
+      html[data-slide="2"] .deck-nav a:nth-child(3),
+      html[data-slide="2"] .deck-nav a:nth-child(4),
+      html[data-slide="2"] .deck-nav a:nth-child(5),
+      html[data-slide="2"] .deck-nav a:nth-child(6),
+      html[data-slide="2"] .deck-nav a:nth-child(7),
+      html[data-slide="2"] .deck-nav a:nth-child(8),
+      html[data-slide="2"] .deck-nav a:nth-child(9),
+      html[data-slide="2"] .deck-nav a:nth-child(10),
+      html[data-slide="2"] .deck-nav a:nth-child(11),
+      html[data-slide="3"] .deck-nav a:first-child,
+      html[data-slide="3"] .deck-nav a:nth-child(2),
+      html[data-slide="3"] .deck-nav a:nth-child(4),
+      html[data-slide="3"] .deck-nav a:nth-child(5),
+      html[data-slide="3"] .deck-nav a:nth-child(6),
+      html[data-slide="3"] .deck-nav a:nth-child(7),
+      html[data-slide="3"] .deck-nav a:nth-child(8),
+      html[data-slide="3"] .deck-nav a:nth-child(9),
+      html[data-slide="3"] .deck-nav a:nth-child(10),
+      html[data-slide="3"] .deck-nav a:nth-child(11),
+      html[data-slide="4"] .deck-nav a:first-child,
+      html[data-slide="4"] .deck-nav a:nth-child(2),
+      html[data-slide="4"] .deck-nav a:nth-child(3),
+      html[data-slide="4"] .deck-nav a:nth-child(5),
+      html[data-slide="4"] .deck-nav a:nth-child(6),
+      html[data-slide="4"] .deck-nav a:nth-child(7),
+      html[data-slide="4"] .deck-nav a:nth-child(8),
+      html[data-slide="4"] .deck-nav a:nth-child(9),
+      html[data-slide="4"] .deck-nav a:nth-child(10),
+      html[data-slide="4"] .deck-nav a:nth-child(11),
+      html[data-slide="5"] .deck-nav a:first-child,
+      html[data-slide="5"] .deck-nav a:nth-child(2),
+      html[data-slide="5"] .deck-nav a:nth-child(3),
+      html[data-slide="5"] .deck-nav a:nth-child(4),
+      html[data-slide="5"] .deck-nav a:nth-child(6),
+      html[data-slide="5"] .deck-nav a:nth-child(7),
+      html[data-slide="5"] .deck-nav a:nth-child(8),
+      html[data-slide="5"] .deck-nav a:nth-child(9),
+      html[data-slide="5"] .deck-nav a:nth-child(10),
+      html[data-slide="5"] .deck-nav a:nth-child(11),
+      html[data-slide="6"] .deck-nav a:first-child,
+      html[data-slide="6"] .deck-nav a:nth-child(2),
+      html[data-slide="6"] .deck-nav a:nth-child(3),
+      html[data-slide="6"] .deck-nav a:nth-child(4),
+      html[data-slide="6"] .deck-nav a:nth-child(5),
+      html[data-slide="6"] .deck-nav a:nth-child(7),
+      html[data-slide="6"] .deck-nav a:nth-child(8),
+      html[data-slide="6"] .deck-nav a:nth-child(9),
+      html[data-slide="6"] .deck-nav a:nth-child(10),
+      html[data-slide="6"] .deck-nav a:nth-child(11),
+      html[data-slide="7"] .deck-nav a:first-child,
+      html[data-slide="7"] .deck-nav a:nth-child(2),
+      html[data-slide="7"] .deck-nav a:nth-child(3),
+      html[data-slide="7"] .deck-nav a:nth-child(4),
+      html[data-slide="7"] .deck-nav a:nth-child(5),
+      html[data-slide="7"] .deck-nav a:nth-child(6),
+      html[data-slide="7"] .deck-nav a:nth-child(8),
+      html[data-slide="7"] .deck-nav a:nth-child(9),
+      html[data-slide="7"] .deck-nav a:nth-child(10),
+      html[data-slide="7"] .deck-nav a:nth-child(11),
+      html[data-slide="8"] .deck-nav a:first-child,
+      html[data-slide="8"] .deck-nav a:nth-child(2),
+      html[data-slide="8"] .deck-nav a:nth-child(3),
+      html[data-slide="8"] .deck-nav a:nth-child(4),
+      html[data-slide="8"] .deck-nav a:nth-child(5),
+      html[data-slide="8"] .deck-nav a:nth-child(6),
+      html[data-slide="8"] .deck-nav a:nth-child(7),
+      html[data-slide="8"] .deck-nav a:nth-child(9),
+      html[data-slide="8"] .deck-nav a:nth-child(10),
+      html[data-slide="8"] .deck-nav a:nth-child(11),
+      html[data-slide="9"] .deck-nav a:first-child,
+      html[data-slide="9"] .deck-nav a:nth-child(2),
+      html[data-slide="9"] .deck-nav a:nth-child(3),
+      html[data-slide="9"] .deck-nav a:nth-child(4),
+      html[data-slide="9"] .deck-nav a:nth-child(5),
+      html[data-slide="9"] .deck-nav a:nth-child(6),
+      html[data-slide="9"] .deck-nav a:nth-child(7),
+      html[data-slide="9"] .deck-nav a:nth-child(8),
+      html[data-slide="9"] .deck-nav a:nth-child(10),
+      html[data-slide="9"] .deck-nav a:nth-child(11),
+      html[data-slide="10"] .deck-nav a:first-child,
+      html[data-slide="10"] .deck-nav a:nth-child(2),
+      html[data-slide="10"] .deck-nav a:nth-child(3),
+      html[data-slide="10"] .deck-nav a:nth-child(4),
+      html[data-slide="10"] .deck-nav a:nth-child(5),
+      html[data-slide="10"] .deck-nav a:nth-child(6),
+      html[data-slide="10"] .deck-nav a:nth-child(7),
+      html[data-slide="10"] .deck-nav a:nth-child(8),
+      html[data-slide="10"] .deck-nav a:nth-child(9),
+      html[data-slide="10"] .deck-nav a:nth-child(11),
+      html[data-slide="11"] .deck-nav a:first-child,
+      html[data-slide="11"] .deck-nav a:nth-child(2),
+      html[data-slide="11"] .deck-nav a:nth-child(3),
+      html[data-slide="11"] .deck-nav a:nth-child(4),
+      html[data-slide="11"] .deck-nav a:nth-child(5),
+      html[data-slide="11"] .deck-nav a:nth-child(6),
+      html[data-slide="11"] .deck-nav a:nth-child(7),
+      html[data-slide="11"] .deck-nav a:nth-child(8),
+      html[data-slide="11"] .deck-nav a:nth-child(9),
+      html[data-slide="11"] .deck-nav a:nth-child(10) {
+        background: rgba(86, 96, 105, 0.16);
+      }
+
+      html[data-slide="1"] .deck-nav a:first-child,
+      html[data-slide="2"] .deck-nav a:nth-child(2),
+      html[data-slide="3"] .deck-nav a:nth-child(3),
+      html[data-slide="4"] .deck-nav a:nth-child(4),
+      html[data-slide="5"] .deck-nav a:nth-child(5),
+      html[data-slide="6"] .deck-nav a:nth-child(6),
+      html[data-slide="7"] .deck-nav a:nth-child(7),
+      html[data-slide="8"] .deck-nav a:nth-child(8),
+      html[data-slide="9"] .deck-nav a:nth-child(9),
+      html[data-slide="10"] .deck-nav a:nth-child(10),
+      html[data-slide="11"] .deck-nav a:nth-child(11) {
+        background: rgba(86, 96, 105, 0.58);
+      }
+
+      @keyframes drift-clouds {
+        0% {
+          transform: translate3d(-2%, -1%, 0) scale(1);
+        }
+        100% {
+          transform: translate3d(2%, 2%, 0) scale(1.06);
+        }
+      }
+
+      @keyframes sweep-light {
+        0% {
+          transform: translate3d(-3%, 0, 0) rotate(-1deg);
+          opacity: 0.4;
+        }
+        100% {
+          transform: translate3d(3%, 1%, 0) rotate(1deg);
+          opacity: 0.72;
+        }
+      }
+
+      @keyframes background-breathe {
+        0% {
+          transform: scale(1) translate3d(-1%, 0, 0);
+          opacity: 0.85;
+        }
+        100% {
+          transform: scale(1.05) translate3d(1%, -1%, 0);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .slide {
+          padding: 22px;
+        }
+
+        .deck-nav {
+          left: -18px;
+        }
+
+        .meta {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <div class="ambient" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+
+      <section class="slide-shell" aria-label="Course slides">
+        <div class="slides-viewport">
+          <div class="slides">
+            <article class="slide" data-slide="1">
+              <section class="hero">
+                <div class="panel">
+                  <h1>Be a Codex Prototyping Hero (for PMs/Designers)</h1>
+                </div>
+
+                <div class="panel">
+                  <h2>
+                    Build a voice-enabled app that securely interacts with your
+                    email and calendar (GMail &amp; GCal)
+                  </h2>
+                </div>
+              </section>
+
+              <footer class="meta panel">
+                <div class="meta-copy">
+                  <span class="meta-label">Hosted by</span>
+                  <span class="meta-value">Matthew Moore</span>
+                  <span class="meta-value"
+                    >Ex-Google, Ex-Samsung, Multi-Exited Founder</span
+                  >
+                </div>
+              </footer>
+            </article>
+
+            <article class="slide link-slide" data-slide="2">
+              <section class="link-wrap">
+                <span class="meta-label">Setup</span>
+                <h1>
+                  Get your computer downloading while we cover some concepts.
+                </h1>
+                <p class="link-text">Open the course README here:</p>
+                <a
+                  class="readme-link"
+                  href="https://github.com/moorage/codex-hero-maven-course/blob/main/README.md"
+                >
+                  github.com/moorage/codex-hero-maven-course/blob/main/README.md
+                </a>
+              </section>
+            </article>
+
+            <article class="slide table-slide" data-slide="3">
+              <section class="table-wrap">
+                <span class="meta-label">Concepts</span>
+                <h1>AI Assistant vs AI Agent</h1>
+                <table
+                  class="comparison"
+                  aria-label="AI assistant versus AI agent"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col">AI Assistant</th>
+                      <th scope="col">AI Agent</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Human makes a task, subtask, AI uses tools, answers.
+                      </td>
+                      <td>
+                        Human makes a task, AI makes subtasks in a loop,
+                        eventually answers.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+            </article>
+
+            <article class="slide bullets-slide" data-slide="4">
+              <section class="bullets-wrap">
+                <span class="meta-label">Concepts</span>
+                <h1>Agent Harness makes AI Agents Possible</h1>
+                <ul class="concept-list">
+                  <li>Start logic</li>
+                  <li>Loop logic</li>
+                  <li>Stop for human input logic</li>
+                  <li>
+                    Tools &amp; Skills (e.g. edit files, change code, generate
+                    images)
+                  </li>
+                </ul>
+                <p class="examples">Examples: OpenClaw, Claude Cowork, Codex</p>
+              </section>
+            </article>
+
+            <article class="slide glossary-slide" data-slide="5">
+              <section class="glossary-wrap">
+                <span class="meta-label">Concepts</span>
+                <h1>Skills, Tools, and Sub-Agents</h1>
+                <div class="glossary-list">
+                  <p class="glossary-item">
+                    <strong>Skills:</strong> Knowledge for a type of activity,
+                    with extra context and directions. Example:
+                    <code>high-quality-code-comments</code>
+                  </p>
+                  <p class="glossary-item">
+                    <strong>Tools:</strong> code on the computer that can be
+                    called with parameters. Example: <code>query_database</code>
+                  </p>
+                  <p class="glossary-item">
+                    <strong>Sub-Agents:</strong> collection of tools &amp;
+                    skills with a new context window. Example:
+                    <code>security-auditor</code>
+                  </p>
+                </div>
+              </section>
+            </article>
+
+            <article class="slide" data-slide="6">
+              <section class="hero">
+                <div class="panel">
+                  <h1>
+                    Getting our coding agent to work autonomously to the max
+                  </h1>
+                </div>
+              </section>
+            </article>
+
+            <article class="slide quote-slide" data-slide="7">
+              <section class="quote-wrap">
+                <span class="meta-label">Concepts</span>
+                <h1>The Ralph Loop</h1>
+                <p class="loop-line">
+                  AI writes code → AI tests code → AI re-writes code → AI tests
+                  code ...
+                </p>
+                <img
+                  class="quote-media"
+                  src="tmp/ralph-loop.png"
+                  alt="Ralph loop diagram"
+                />
+                <p class="goal-line">
+                  our goal: get the coding agent fully-autonomous
+                </p>
+              </section>
+            </article>
+
+            <article class="slide validation-slide" data-slide="8">
+              <section class="validation-wrap">
+                <span class="meta-label">Concepts</span>
+                <h1>Give the agent the keys to test &amp; validate</h1>
+                <p class="validation-intro">
+                  To have it write code for us, we must:
+                </p>
+                <ul class="validation-list">
+                  <li>Give it a good spec (PMs &amp; Designers, Yeah!)</li>
+                  <li>
+                    Remind it how to validate its work: Good harness &amp;
+                    prompting
+                  </li>
+                </ul>
+                <div>
+                  <p class="validation-intro">Examples:</p>
+                  <ul class="validation-examples">
+                    <li>make a screencast of the new features</li>
+                    <li>
+                      Can you validate this behavior on your own, and iterate
+                      until you verify it works?
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </article>
+
+            <article class="slide divider-slide" data-slide="9">
+              <section class="divider-wrap">
+                <h1>
+                  k enough theory.<span class="divider-line"
+                    >LFG🚀🚀🚀🚀🚀!!!1</span
+                  >
+                </h1>
+              </section>
+            </article>
+
+            <article class="slide code-slide" data-slide="10">
+              <section class="code-wrap">
+                <span class="meta-label">Setup</span>
+                <h1>Initialize workspace using Terminal</h1>
+                <div class="code-stack">
+                  <div class="code-card">
+                    <button
+                      class="copy-button"
+                      type="button"
+                      aria-label="Copy commands"
+                      data-copy-target="init-workspace-code"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <rect x="9" y="9" width="10" height="10" rx="2"></rect>
+                        <path
+                          d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                        ></path>
+                      </svg>
+                    </button>
+                    <pre
+                      class="code-block"
+                      id="init-workspace-code"
+                    ><code>mkdir -p ~/Projects/codexhero && cd ~/Projects/codexhero
+cxharness</code></pre>
+                  </div>
+
+                  <div class="code-card">
+                    <button
+                      class="copy-button"
+                      type="button"
+                      aria-label="Copy commands"
+                      data-copy-target="first-feature-code"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <rect x="9" y="9" width="10" height="10" rx="2"></rect>
+                        <path
+                          d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                        ></path>
+                      </svg>
+                    </button>
+                    <pre
+                      class="code-block"
+                      id="first-feature-code"
+                    ><code>cxhere -p 5173 firstfeature</code></pre>
+                  </div>
+                </div>
+              </section>
+            </article>
+
+            <article class="slide prompt-slide" data-slide="11">
+              <section class="prompt-wrap">
+                <span class="meta-label">Prompting</span>
+                <h1>Make a React 19.2 App</h1>
+                <p class="prompt-label">In the codex prompt, write:</p>
+                <div class="code-card">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    aria-label="Copy prompt"
+                    data-copy-target="react-app-prompt"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="10" height="10" rx="2"></rect>
+                      <path d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                    </svg>
+                  </button>
+                  <pre class="code-block" id="react-app-prompt"><code>make a React 19.2 vite app that asks my name and says hello name.  show me a screencast of it working and start a server on :5173 so I can view it in my browser</code></pre>
+                </div>
+              </section>
+            </article>
+          </div>
+        </div>
+
+        <nav class="deck-nav" aria-label="Slide navigation">
+          <a href="#slide-1" aria-label="Go to slide 1"></a>
+          <a href="#slide-2" aria-label="Go to slide 2"></a>
+          <a href="#slide-3" aria-label="Go to slide 3"></a>
+          <a href="#slide-4" aria-label="Go to slide 4"></a>
+          <a href="#slide-5" aria-label="Go to slide 5"></a>
+          <a href="#slide-6" aria-label="Go to slide 6"></a>
+          <a href="#slide-7" aria-label="Go to slide 7"></a>
+          <a href="#slide-8" aria-label="Go to slide 8"></a>
+          <a href="#slide-9" aria-label="Go to slide 9"></a>
+          <a href="#slide-10" aria-label="Go to slide 10"></a>
+          <a href="#slide-11" aria-label="Go to slide 11"></a>
+        </nav>
+      </section>
+    </main>
+    <script>
+      const slideHashes = [
+        "#slide-1",
+        "#slide-2",
+        "#slide-3",
+        "#slide-4",
+        "#slide-5",
+        "#slide-6",
+        "#slide-7",
+        "#slide-8",
+        "#slide-9",
+        "#slide-10",
+        "#slide-11",
+      ];
+
+      function syncSlideState() {
+        const hash = window.location.hash;
+        const index = slideHashes.indexOf(hash);
+        document.documentElement.dataset.slide = String(
+          index === -1 ? 1 : index + 1,
+        );
+      }
+
+      function currentSlideIndex() {
+        const hash = window.location.hash;
+        const index = slideHashes.indexOf(hash);
+        return index === -1 ? 0 : index;
+      }
+
+      function goToSlide(index) {
+        const nextIndex = Math.max(0, Math.min(index, slideHashes.length - 1));
+        window.location.hash = slideHashes[nextIndex];
+      }
+
+      window.addEventListener("hashchange", syncSlideState);
+
+      window.addEventListener("keydown", (event) => {
+        if (
+          event.key !== "ArrowRight" &&
+          event.key !== "ArrowLeft" &&
+          event.key !== "ArrowDown" &&
+          event.key !== "ArrowUp"
+        ) {
+          return;
+        }
+
+        const index = currentSlideIndex();
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          goToSlide(index + 1);
+        } else {
+          goToSlide(index - 1);
+        }
+      });
+
+      document.addEventListener("click", async (event) => {
+        const button = event.target.closest(".copy-button");
+        if (!button) {
+          return;
+        }
+
+        const targetId = button.dataset.copyTarget;
+        const code = document.getElementById(targetId);
+        if (!code) {
+          return;
+        }
+
+        try {
+          await navigator.clipboard.writeText(code.textContent.trim());
+          button.dataset.copied = "true";
+          setTimeout(() => {
+            button.dataset.copied = "false";
+          }, 1200);
+        } catch (_error) {
+          button.dataset.copied = "false";
+        }
+      });
+
+      syncSlideState();
+      requestAnimationFrame(() => {
+        document.documentElement.dataset.ready = "true";
+      });
+    </script>
+  </body>
+</html>
