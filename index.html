@@ -12,37 +12,41 @@
     />
     <script>
       document.documentElement.dataset.slide =
-        window.location.hash === "#slide-16"
-          ? "16"
-          : window.location.hash === "#slide-15"
-            ? "15"
-          : window.location.hash === "#slide-14"
-            ? "14"
-          : window.location.hash === "#slide-13"
-            ? "13"
-          : window.location.hash === "#slide-12"
-            ? "12"
-          : window.location.hash === "#slide-11"
-            ? "11"
-          : window.location.hash === "#slide-10"
-            ? "10"
-          : window.location.hash === "#slide-9"
-            ? "9"
-            : window.location.hash === "#slide-8"
-              ? "8"
-              : window.location.hash === "#slide-7"
-                ? "7"
-                : window.location.hash === "#slide-6"
-                  ? "6"
-                  : window.location.hash === "#slide-5"
-                    ? "5"
-                    : window.location.hash === "#slide-4"
-                      ? "4"
-                      : window.location.hash === "#slide-3"
-                        ? "3"
-                        : window.location.hash === "#slide-2"
-                          ? "2"
-                          : "1";
+        window.location.hash === "#slide-18"
+          ? "18"
+          : window.location.hash === "#slide-17"
+            ? "17"
+            : window.location.hash === "#slide-16"
+              ? "16"
+              : window.location.hash === "#slide-15"
+                ? "15"
+                : window.location.hash === "#slide-14"
+                  ? "14"
+                  : window.location.hash === "#slide-13"
+                    ? "13"
+                    : window.location.hash === "#slide-12"
+                      ? "12"
+                      : window.location.hash === "#slide-11"
+                        ? "11"
+                        : window.location.hash === "#slide-10"
+                          ? "10"
+                          : window.location.hash === "#slide-9"
+                            ? "9"
+                            : window.location.hash === "#slide-8"
+                              ? "8"
+                              : window.location.hash === "#slide-7"
+                                ? "7"
+                                : window.location.hash === "#slide-6"
+                                  ? "6"
+                                  : window.location.hash === "#slide-5"
+                                    ? "5"
+                                    : window.location.hash === "#slide-4"
+                                      ? "4"
+                                      : window.location.hash === "#slide-3"
+                                        ? "3"
+                                        : window.location.hash === "#slide-2"
+                                          ? "2"
+                                          : "1";
     </script>
     <style>
       :root {
@@ -243,6 +247,14 @@
 
       .slide[data-slide="16"] {
         transform: translateY(1500%);
+      }
+
+      .slide[data-slide="17"] {
+        transform: translateY(1600%);
+      }
+
+      .slide[data-slide="18"] {
+        transform: translateY(1700%);
       }
 
       html[data-slide="2"] .slide[data-slide="1"] {
@@ -671,6 +683,15 @@
         word-break: break-word;
       }
 
+      .closing-wrap {
+        justify-items: center;
+        text-align: center;
+      }
+
+      .closing-wrap .link-text {
+        max-width: 34ch;
+      }
+
       .table-slide {
         justify-content: center;
       }
@@ -885,7 +906,6 @@
         display: inline-block;
         width: fit-content;
       }
-
 
       .divider-slide {
         justify-content: center;
@@ -1674,8 +1694,12 @@ cxharness</code></pre>
                     <pre
                       class="code-block"
                       id="open-codex-config-code"
-                    ><code>code ~/.codex</code></pre>
+                    ><code>code ~/.codex/config.toml</code></pre>
                   </div>
+
+                  <p class="validation-intro">
+                    Copy this into <code>~/.codex/config.toml</code> and save:
+                  </p>
 
                   <div class="code-card">
                     <button
@@ -1714,6 +1738,8 @@ unified_exec = true
 multi_agent = true
 apps = true</code></pre>
                   </div>
+
+                  <p class="validation-intro">Back to terminal, paste:</p>
 
                   <div class="code-card">
                     <button
@@ -1758,12 +1784,25 @@ apps = true</code></pre>
                     aria-label="Copy prompt"
                     data-copy-target="react-app-prompt"
                   >
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
                       <rect x="9" y="9" width="10" height="10" rx="2"></rect>
-                      <path d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                      <path
+                        d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                      ></path>
                     </svg>
                   </button>
-                  <pre class="code-block" id="react-app-prompt"><code>make a React 19.2 app with a single express server that asks my name and says hello name. show me a screencast of it working and run the server on :5173 so I can view it in my browser</code></pre>
+                  <pre
+                    class="code-block"
+                    id="react-app-prompt"
+                  ><code>make a React 19.2 app with a single express server that asks my name and says hello name. show me a screencast of it working and run the server on :5173 so I can view it in my browser</code></pre>
                 </div>
               </section>
             </article>
@@ -1849,7 +1888,9 @@ apps = true</code></pre>
                     </button>
                   </li>
                   <li class="oauth-step">
-                    <p class="oauth-step-text">- Download Key, Make <code>.env</code> folder</p>
+                    <p class="oauth-step-text">
+                      - Download Key, Make <code>.env</code> folder
+                    </p>
                     <button
                       class="oauth-thumb"
                       type="button"
@@ -1882,13 +1923,22 @@ apps = true</code></pre>
                             stroke-linejoin="round"
                             aria-hidden="true"
                           >
-                            <rect x="9" y="9" width="10" height="10" rx="2"></rect>
+                            <rect
+                              x="9"
+                              y="9"
+                              width="10"
+                              height="10"
+                              rx="2"
+                            ></rect>
                             <path
                               d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
                             ></path>
                           </svg>
                         </button>
-                        <pre class="code-block" id="google-scope-code"><code>https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/calendar.events</code></pre>
+                        <pre
+                          class="code-block"
+                          id="google-scope-code"
+                        ><code>https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/calendar.events</code></pre>
                       </div>
                     </div>
                     <button
@@ -1944,7 +1994,9 @@ apps = true</code></pre>
               <section class="prompt-wrap">
                 <span class="meta-label">Prompting</span>
                 <h1>GMail &amp; GCal Prompt</h1>
-                <p class="prompt-label">Ask <code>codex</code> to connect to your email and calendar.</p>
+                <p class="prompt-label">
+                  Ask <code>codex</code> to connect to your email and calendar.
+                </p>
                 <div class="code-card">
                   <button
                     class="copy-button"
@@ -1952,12 +2004,25 @@ apps = true</code></pre>
                     aria-label="Copy prompt"
                     data-copy-target="gmail-gcal-prompt"
                   >
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
                       <rect x="9" y="9" width="10" height="10" rx="2"></rect>
-                      <path d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                      <path
+                        d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                      ></path>
                     </svg>
                   </button>
-                  <pre class="code-block" id="gmail-gcal-prompt"><code>Using a single express server running on :5173 and the json google client credentials in .env/, make it so I can connect my gmail and calendar with oauth redirect uri http://localhost:5173/auth/google/callback. it should ask for scopes: https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/calendar.events
+                  <pre
+                    class="code-block"
+                    id="gmail-gcal-prompt"
+                  ><code>Using a single express server running on :5173 and the json google client credentials in .env/, make it so I can connect my gmail and calendar with oauth redirect uri http://localhost:5173/auth/google/callback. it should ask for scopes: https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/calendar.events
 
 The app should use a sqllite database for any storage.
 
@@ -1972,7 +2037,9 @@ Give me a way to authenticate on the homepage.</code></pre>
                 <h1>Voice Mode App</h1>
                 <ul class="oauth-list">
                   <li class="oauth-step">
-                    <p class="oauth-step-text">- We'll use <code>OpenAI Realtime API</code></p>
+                    <p class="oauth-step-text">
+                      - We'll use <code>OpenAI Realtime API</code>
+                    </p>
                   </li>
                   <li class="oauth-step">
                     <p class="oauth-step-text">- Make OpenAI Project</p>
@@ -2025,13 +2092,22 @@ Give me a way to authenticate on the homepage.</code></pre>
                             stroke-linejoin="round"
                             aria-hidden="true"
                           >
-                            <rect x="9" y="9" width="10" height="10" rx="2"></rect>
+                            <rect
+                              x="9"
+                              y="9"
+                              width="10"
+                              height="10"
+                              rx="2"
+                            ></rect>
                             <path
                               d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
                             ></path>
                           </svg>
                         </button>
-                        <pre class="code-block" id="openai-env-example"><code>OPENAI_API_KEY=sk-proj-ab...AA</code></pre>
+                        <pre
+                          class="code-block"
+                          id="openai-env-example"
+                        ><code>OPENAI_API_KEY=sk-proj-ab...AA</code></pre>
                       </div>
                     </div>
                   </li>
@@ -2054,12 +2130,25 @@ Give me a way to authenticate on the homepage.</code></pre>
                     aria-label="Copy prompt"
                     data-copy-target="voice-mode-prompt"
                   >
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
                       <rect x="9" y="9" width="10" height="10" rx="2"></rect>
-                      <path d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                      <path
+                        d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                      ></path>
                     </svg>
                   </button>
-                  <pre class="code-block" id="voice-mode-prompt"><code>Use a single express server running on :5173 and the gpt realtime model to enable voice interaction on my app, using WebRTC. Support barge in.
+                  <pre
+                    class="code-block"
+                    id="voice-mode-prompt"
+                  ><code>Use a single express server running on :5173 and the gpt realtime model to enable voice interaction on my app, using WebRTC. Support barge in.
 
 Make tools to support:
 - searching emails on gmail api
@@ -2068,8 +2157,131 @@ Make tools to support:
 - reading out the day's event from google calendar api
 - sending an email via the gmail api to all the invitees on a particular calendar event.
 
-Add comprehensive evals for each kind of interaction specified. Make a well information-architected dashboard for viewing last results of these evals.</code></pre>
+Add comprehensive evals for each kind of interaction specified. Make a well information-architected dashboard for viewing last results of these evals.
+
+Make a screencast showing the audio chat, using codex TTS and TTS to create reasonable responses, capturing audio with PulseAudio in the environment. 
+</code></pre>
                 </div>
+              </section>
+            </article>
+
+            <article class="slide prompt-slide" data-slide="17">
+              <section class="prompt-wrap">
+                <span class="meta-label">Prompting</span>
+                <h1>Make it recurring</h1>
+                <p class="prompt-label">In the codex prompt:</p>
+                <div class="code-card">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    aria-label="Copy prompt"
+                    data-copy-target="make-it-recurring-prompt"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="9" y="9" width="10" height="10" rx="2"></rect>
+                      <path
+                        d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                      ></path>
+                    </svg>
+                  </button>
+                  <pre
+                    class="code-block"
+                    id="make-it-recurring-prompt"
+                  ><code>Using the single express server running on :5173, make an idempotent endpoint that makes a daily audio summary of my day to come, and summarize key emails that came in with deadlines; and it emails it to myself. Use OpenAI TTS. Call it the daily brief for &lt;Day, Month&gt; and phrase it like an upbeat podcaster.
+
+Save past summary texts in the sqlite database, and have a UI that can generate the audio and play it in the browser, too. Make a screencast of that working.</code></pre>
+                </div>
+                <p class="prompt-label">
+                  Now in the non-<code>cxhere</code> prompt, run
+                  <code>codex</code> on your main computer in the project:
+                </p>
+                <div class="code-card">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    aria-label="Copy shell command"
+                    data-copy-target="main-computer-codex-command"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="9" y="9" width="10" height="10" rx="2"></rect>
+                      <path
+                        d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                      ></path>
+                    </svg>
+                  </button>
+                  <pre
+                    class="code-block"
+                    id="main-computer-codex-command"
+                  ><code>codex</code></pre>
+                </div>
+                <p class="prompt-label">And then do this prompt:</p>
+                <div class="code-card">
+                  <button
+                    class="copy-button"
+                    type="button"
+                    aria-label="Copy follow-up prompt"
+                    data-copy-target="main-computer-follow-up-prompt"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="9" y="9" width="10" height="10" rx="2"></rect>
+                      <path
+                        d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                      ></path>
+                    </svg>
+                  </button>
+                  <pre
+                    class="code-block"
+                    id="main-computer-follow-up-prompt"
+                  ><code>commit and merge in changes from the last active git worktree into here
+
+then, setup a script whereby every morning at 8am (up to 10am, if the computer is not on yet), it starts the server and calls the idempotent endpoint and emails it (and shuts the server back down when done)
+
+send out a email if anything goes wrong with that endpoint, and output helpful logs if anything goes wrong with even sending an error email
+
+this could involve using launchd depending on this computer's environment.</code></pre>
+                </div>
+              </section>
+            </article>
+
+            <article class="slide link-slide" data-slide="18">
+              <section class="link-wrap closing-wrap">
+                <span class="meta-label">Closing</span>
+                <h1>TYVM 🙏</h1>
+                <p class="link-text">
+                  If you're interested in other courses of mine, visit me at
+                </p>
+                <a
+                  class="readme-link"
+                  href="https://maven.com/moorage"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  maven.com/moorage
+                </a>
               </section>
             </article>
           </div>
@@ -2092,6 +2304,8 @@ Add comprehensive evals for each kind of interaction specified. Make a well info
           <a href="#slide-14" aria-label="Go to slide 14"></a>
           <a href="#slide-15" aria-label="Go to slide 15"></a>
           <a href="#slide-16" aria-label="Go to slide 16"></a>
+          <a href="#slide-17" aria-label="Go to slide 17"></a>
+          <a href="#slide-18" aria-label="Go to slide 18"></a>
         </nav>
       </section>
     </main>
@@ -2142,6 +2356,8 @@ Add comprehensive evals for each kind of interaction specified. Make a well info
         "#slide-14",
         "#slide-15",
         "#slide-16",
+        "#slide-17",
+        "#slide-18",
       ];
       let lastWheelNavigationAt = 0;
       const imagePopover = document.getElementById("image-popover");
@@ -2208,22 +2424,40 @@ Add comprehensive evals for each kind of interaction specified. Make a well info
           return;
         }
 
+        const target = event.target;
+        if (
+          target instanceof HTMLElement &&
+          (target.isContentEditable ||
+            target.closest(
+              'input, textarea, select, button, a, [role="button"], [tabindex]',
+            ))
+        ) {
+          return;
+        }
+
         if (
           event.key !== "ArrowRight" &&
           event.key !== "ArrowLeft" &&
           event.key !== "ArrowDown" &&
-          event.key !== "ArrowUp"
+          event.key !== "ArrowUp" &&
+          event.key !== " "
         ) {
           return;
         }
 
         const index = currentSlideIndex();
 
-        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        if (
+          event.key === "ArrowRight" ||
+          event.key === "ArrowDown" ||
+          event.key === " "
+        ) {
           goToSlide(index + 1);
         } else {
           goToSlide(index - 1);
         }
+
+        event.preventDefault();
       });
 
       window.addEventListener(
@@ -2255,7 +2489,10 @@ Add comprehensive evals for each kind of interaction specified. Make a well info
       document.addEventListener("click", async (event) => {
         const thumbButton = event.target.closest(".oauth-thumb");
         if (thumbButton) {
-          openPopover(thumbButton.dataset.modalSrc, thumbButton.dataset.modalAlt);
+          openPopover(
+            thumbButton.dataset.modalSrc,
+            thumbButton.dataset.modalAlt,
+          );
           return;
         }
 

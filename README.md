@@ -9,7 +9,7 @@ Before starting the class, please follow the steps below to get your computer se
 
 ## Before You Start
 
-- This setup assumes you are on `macOS`.  Message me through Mavven if you have a different OS.
+- This setup assumes you are on `macOS`.  [Message me](https://maven.com/moorage) through Maven if you have a different OS.
 - You will use the `Terminal` app for the command-line steps.
 - Install the items in the order shown below.
 
