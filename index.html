@@ -854,11 +854,33 @@
         border-radius: 18px;
         display: block;
         box-shadow: 0 18px 48px rgba(86, 96, 105, 0.14);
+        overflow: visible;
       }
 
       .quote-link {
         display: inline-block;
         width: fit-content;
+      }
+
+      .quote-media text {
+        fill: var(--ink-strong);
+      }
+
+      .quote-media .loop-node {
+        fill: rgba(255, 255, 255, 0.82);
+        stroke: rgba(86, 96, 105, 0.18);
+        stroke-width: 2;
+      }
+
+      .quote-media .loop-arrow {
+        fill: none;
+        stroke: rgba(86, 96, 105, 0.54);
+        stroke-width: 5;
+        stroke-linecap: round;
+      }
+
+      .quote-media .loop-backdrop {
+        fill: rgba(255, 255, 255, 0.55);
       }
 
       .divider-slide {
@@ -1370,11 +1392,69 @@
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img
+                  <svg
                     class="quote-media"
-                    src="tmp/ralph-loop.png"
-                    alt="Ralph loop diagram"
-                  />
+                    viewBox="0 0 520 300"
+                    role="img"
+                    aria-label="Ralph loop diagram showing AI writes code, AI tests code, then repeats"
+                  >
+                    <defs>
+                      <linearGradient id="loop-card" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="rgb(255,255,255)" stop-opacity="0.92" />
+                        <stop offset="100%" stop-color="rgb(235,244,245)" stop-opacity="0.92" />
+                      </linearGradient>
+                      <marker
+                        id="loop-arrowhead"
+                        markerWidth="12"
+                        markerHeight="12"
+                        refX="10"
+                        refY="6"
+                        orient="auto"
+                      >
+                        <path d="M0,0 L12,6 L0,12 z" fill="rgb(86, 96, 105)" fill-opacity="0.54" />
+                      </marker>
+                    </defs>
+                    <rect
+                      x="0"
+                      y="0"
+                      width="520"
+                      height="300"
+                      rx="18"
+                      fill="url(#loop-card)"
+                    />
+                    <circle class="loop-backdrop" cx="140" cy="150" r="98" />
+                    <circle class="loop-backdrop" cx="380" cy="150" r="98" />
+                    <rect class="loop-node" x="58" y="102" width="164" height="96" rx="24" />
+                    <rect class="loop-node" x="298" y="102" width="164" height="96" rx="24" />
+                    <path
+                      class="loop-arrow"
+                      d="M228 126 C288 88, 340 88, 390 124"
+                      marker-end="url(#loop-arrowhead)"
+                    />
+                    <path
+                      class="loop-arrow"
+                      d="M292 176 C232 214, 180 214, 130 178"
+                      marker-end="url(#loop-arrowhead)"
+                    />
+                    <text x="140" y="140" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="700">
+                      AI writes
+                    </text>
+                    <text x="140" y="166" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="700">
+                      code
+                    </text>
+                    <text x="380" y="140" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="700">
+                      AI tests
+                    </text>
+                    <text x="380" y="166" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="700">
+                      code
+                    </text>
+                    <text x="260" y="42" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="28" font-weight="600">
+                      Ralph Loop
+                    </text>
+                    <text x="260" y="270" text-anchor="middle" font-family="Manrope, sans-serif" font-size="15" fill="rgb(86, 96, 105)" fill-opacity="0.72">
+                      iterate until the agent can prove the change works
+                    </text>
+                  </svg>
                 </a>
                 <p class="goal-line">
                   our goal: get the coding agent fully-autonomous
