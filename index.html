@@ -657,7 +657,6 @@
         display: grid;
         gap: 1.35rem;
         align-content: center;
-        transform: translateY(-4vh);
       }
 
       .table-wrap h1 {
@@ -742,7 +741,6 @@
         gap: 1.3rem;
         align-content: center;
         width: 100%;
-        transform: translateY(-3vh);
       }
 
       .glossary-wrap h1 {
@@ -781,7 +779,6 @@
         gap: 1.4rem;
         align-content: center;
         width: 100%;
-        transform: translateY(-4vh);
       }
 
       .quote-wrap h1 {
@@ -857,6 +854,11 @@
         border-radius: 18px;
         display: block;
         box-shadow: 0 18px 48px rgba(86, 96, 105, 0.14);
+      }
+
+      .quote-link {
+        display: inline-block;
+        width: fit-content;
       }
 
       .divider-slide {
@@ -1013,6 +1015,12 @@
         color: var(--ink-soft);
         font-size: clamp(1.5rem, 1.5vw, 1.5rem);
         line-height: 1.48;
+      }
+
+      .fancy-list a {
+        color: inherit;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.14em;
       }
 
       .deck-nav a.is-active {
@@ -1356,11 +1364,18 @@
                   AI writes code → AI tests code → AI re-writes code → AI tests
                   code ...
                 </p>
-                <img
-                  class="quote-media"
-                  src="tmp/ralph-loop.png"
-                  alt="Ralph loop diagram"
-                />
+                <a
+                  class="quote-link"
+                  href="https://ghuntley.com/loop/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    class="quote-media"
+                    src="tmp/ralph-loop.png"
+                    alt="Ralph loop diagram"
+                  />
+                </a>
                 <p class="goal-line">
                   our goal: get the coding agent fully-autonomous
                 </p>
@@ -1493,8 +1508,26 @@ cxharness</code></pre>
                 <span class="meta-label">Next Steps</span>
                 <h1>Fancypants</h1>
                 <ul class="fancy-list">
-                  <li>Fancypants: Connect to Google Calendar &amp; Email ( https://console.cloud.google.com/projectcreate )</li>
-                  <li>Fancierpants: Add Voice Interaction ( https://platform.openai.com/ )</li>
+                  <li>
+                    Fancypants: Connect to Google Calendar &amp; Email (
+                    <a
+                      href="https://console.cloud.google.com/projectcreate"
+                      target="_blank"
+                      rel="noreferrer"
+                      >https://console.cloud.google.com/projectcreate</a
+                    >
+                    )
+                  </li>
+                  <li>
+                    Fancierpants: Add Voice Interaction (
+                    <a
+                      href="https://platform.openai.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                      >https://platform.openai.com/</a
+                    >
+                    )
+                  </li>
                   <li>Fanciestpants: Make it recurring ( launchd )</li>
                 </ul>
               </section>
@@ -1533,6 +1566,7 @@ cxharness</code></pre>
         "#slide-11",
         "#slide-12",
       ];
+      let lastWheelNavigationAt = 0;
 
       function syncSlideState() {
         const hash = window.location.hash;
@@ -1581,6 +1615,27 @@ cxharness</code></pre>
           goToSlide(index - 1);
         }
       });
+
+      window.addEventListener(
+        "wheel",
+        (event) => {
+          if (Math.abs(event.deltaY) < 10) {
+            return;
+          }
+
+          const now = Date.now();
+          if (now - lastWheelNavigationAt < 650) {
+            event.preventDefault();
+            return;
+          }
+
+          lastWheelNavigationAt = now;
+          const index = currentSlideIndex();
+          goToSlide(index + (event.deltaY > 0 ? 1 : -1));
+          event.preventDefault();
+        },
+        { passive: false },
+      );
 
       document.addEventListener("click", async (event) => {
         const button = event.target.closest(".copy-button");
