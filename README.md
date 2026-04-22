@@ -3,10 +3,7 @@
 This is the public repository [Be a Codex Prototyping Hero (for PMs/Designers)
 ](https://maven.com/p/9857db/be-a-codex-prototyping-hero-for-p-ms-designers) Maven course.
 
-## GitHub Pages
-
-GitHub Pages deploys automatically from `.github/workflows/deploy-pages.yml`.
-It publishes the repository root `index.html` as the site.
+Slides are available here: <https://moorage.github.io/codex-hero-maven-course/>
 
 Before starting the class, please follow the steps below to get your computer set up.
 
